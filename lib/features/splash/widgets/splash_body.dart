@@ -1,4 +1,7 @@
+import 'package:advancedee/features/on_boarding/on_boarding_view.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 
 class SplashBody extends StatefulWidget {
   const SplashBody({super.key});
@@ -19,6 +22,8 @@ class _SplashBodyState extends State<SplashBody> with SingleTickerProviderStateM
     fadingAnimation = Tween<double>(begin: 0.2, end: 1).animate(animationController!);
 
     animationController?.repeat(reverse: true);
+
+    goToNextView();
   }
 
   @override
@@ -49,5 +54,11 @@ class _SplashBodyState extends State<SplashBody> with SingleTickerProviderStateM
         ],
       ),
     );
+  }
+
+  void goToNextView() {
+    Future.delayed(Duration(seconds: 3), () {
+      Get.to(() => OnBoardingView(), transition: Transition.fade);
+    });
   }
 }

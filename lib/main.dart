@@ -1,6 +1,7 @@
-import 'package:advancedee/splash/splash_view.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+
+import 'features/splash/splash_view.dart';
 
 void main() {
   runApp(const FruitsMarket());
