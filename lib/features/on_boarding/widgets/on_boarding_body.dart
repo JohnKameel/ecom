@@ -5,6 +5,10 @@ import 'package:advancedee/features/on_boarding/widgets/custom_indicator.dart';
 import 'package:advancedee/features/on_boarding/widgets/custom_page_view.dart';
 import 'package:dots_indicator/dots_indicator.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
+
+import '../../auth/pages/login/login_view.dart';
 
 class OnBoardingBody extends StatefulWidget {
   const OnBoardingBody({super.key});
@@ -63,6 +67,13 @@ class _OnBoardingBodyState extends State<OnBoardingBody> {
           right: SizeConfig.defaultSize! * 10,
           bottom: SizeConfig.defaultSize! * 10,
             child: CustomButton(
+              onTap: () {
+                if (pageController!.page! < 2) {
+                  pageController?.nextPage(duration: Duration(milliseconds: 500), curve: Curves.easeIn);
+                } else {
+                  Get.to(() => LoginView(), transition : Transition.rightToLeft , duration : Duration(milliseconds: 500));
+                }
+              },
               text: pageController!.hasClients ? (pageController?.page == 2 ? 'Get started' : 'Next') : 'Next',
             ),
         ),
