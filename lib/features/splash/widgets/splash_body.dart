@@ -1,3 +1,4 @@
+import 'package:advancedee/core/utils/size_config.dart';
 import 'package:advancedee/features/on_boarding/on_boarding_view.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -34,6 +35,7 @@ class _SplashBodyState extends State<SplashBody> with SingleTickerProviderStateM
 
   @override
   Widget build(BuildContext context) {
+    SizeConfig().init(context);
     return Container(
       child: Column(
         children: [
